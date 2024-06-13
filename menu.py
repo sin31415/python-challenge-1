@@ -167,7 +167,7 @@ while place_order:
         match keep_ordering.lower():
         # Keep ordering
             case 'y':
-            break
+                break
         
         # Exit the keep ordering question loop
         # Complete the order
@@ -178,11 +178,11 @@ while place_order:
             
                 print(f"Thank you for your order.")
 
-                    # Exit the keep ordering question loop
+                # Exit the keep ordering question loop
                 place_order = False
                 break
 
-                    # Tell the customer to try again
+            # Tell the customer to try again
             case _:
                 print("Please choose either (Y)es or (N)")
 
@@ -219,4 +219,4 @@ for i in order:
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 
-print(f"\nThe order total comes to {round(order_total,2)}. Thank you!")
+print(f"\nThe order total comes to ${round(order_total,2)}. Thank you!")
