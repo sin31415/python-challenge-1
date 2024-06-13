@@ -166,7 +166,7 @@ while place_order:
         # 5. Check the customer's input
         match keep_ordering.lower():
         # Keep ordering
-        case 'y':
+            case 'y':
             break
         
         # Exit the keep ordering question loop
@@ -174,17 +174,17 @@ while place_order:
         # Since the customer decided to stop ordering, thank them for
         # their order
                 
-        case 'n':
+            case 'n':
             
-            print(f"Thank you for your order.")
+                print(f"Thank you for your order.")
 
-                # Exit the keep ordering question loop
-            place_order = False
-            break
+                    # Exit the keep ordering question loop
+                place_order = False
+                break
 
-                # Tell the customer to try again
-        case _:
-            print("Please choose either (Y)es or (N)")
+                    # Tell the customer to try again
+            case _:
+                print("Please choose either (Y)es or (N)")
 
 
 # Print out the customer's order
