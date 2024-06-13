@@ -150,6 +150,8 @@ while place_order:
                 # Tell the customer they didn't select a menu option
                 else:
                     print(f"{menu_item_number} was not a menu option.")
+            else:
+                print(f"{menu_item_number} was not a menu option.")        
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_category} was not a menu option.")
@@ -162,9 +164,9 @@ while place_order:
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
 
         # 5. Check the customer's input
-
+        match keep_ordering.lower():
         # Keep ordering
-        if keep_ordering.lower() == 'y':
+        case 'y':
             break
         
         # Exit the keep ordering question loop
@@ -172,7 +174,7 @@ while place_order:
         # Since the customer decided to stop ordering, thank them for
         # their order
                 
-        elif keep_ordering.lower() == 'n':
+        case 'n':
             
             print(f"Thank you for your order.")
 
@@ -181,7 +183,7 @@ while place_order:
             break
 
                 # Tell the customer to try again
-        else:
+        case _:
             print("Please choose either (Y)es or (N)")
 
 
@@ -210,11 +212,11 @@ for i in order:
     price_spaces = " " * (5 - len(str(price_of_item)))
 
     # 10. Print the item name, price, and quantity
-    print(f"\n {item_name} {name_spaces} | {price_of_item} {price_spaces} | {quantity_of_item}")
+    print(f"{item_name} {name_spaces} | {price_of_item} {price_spaces} | {quantity_of_item}")
 
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 
-print(f"The order total comes to {round(order_total,2)}. Thank you!")
+print(f"\nThe order total comes to {round(order_total,2)}. Thank you!")
