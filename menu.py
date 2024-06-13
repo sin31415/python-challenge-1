@@ -161,7 +161,7 @@ while place_order:
 
     while True:
         # Ask the customer if they would like to order anything else
-        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o ")
+        keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o: ")
 
         # 5. Check the customer's input
         match keep_ordering.lower():
