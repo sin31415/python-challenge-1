@@ -52,7 +52,7 @@ menu = {
 
 # 1. Set up order list. Order list will store a list of dictionaries for
 # menu item name, item price, and quantity ordered
-
+order = []
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -118,32 +118,38 @@ while place_order:
                     }
                     i += 1
             # 2. Ask customer to input menu item number
-
-
+            menu_item_number = input("Enter the menu item number: ")
+            # print(menu_items)
             # 3. Check if the customer typed a number
-
+            if menu_item_number.isdigit():
                 # Convert the menu selection to an integer
-
+                menu_item_number = int(menu_item_number)
+                
 
                 # 4. Check if the menu selection is in the menu items
-
+                if menu_item_number in menu_items.keys(): 
                     # Store the item name as a variable
-
+                    item = menu_items.get(menu_item_number)
 
                     # Ask the customer for the quantity of the menu item
-
+                    q = input(f"Enter the quantity of this item that you would like to buy: ")
 
                     # Check if the quantity is a number, default to 1 if not
-
+                    if q.isdigit() != True:
+                        q = 1
+                    else:
+                        q = int(q)
 
                     # Add the item name, price, and quantity to the order list
-
+                    item['Quantity'] = q
+                    order.append(item)
 
                     # Tell the customer that their input isn't valid
 
 
                 # Tell the customer they didn't select a menu option
-
+                else:
+                    print(f"{menu_item_number} was not a menu option.")
         else:
             # Tell the customer they didn't select a menu option
             print(f"{menu_category} was not a menu option.")
@@ -157,44 +163,58 @@ while place_order:
 
         # 5. Check the customer's input
 
-                # Keep ordering
+        # Keep ordering
+        if keep_ordering.lower() == 'y':
+            break
+        
+        # Exit the keep ordering question loop
+        # Complete the order
+        # Since the customer decided to stop ordering, thank them for
+        # their order
+                
+        elif keep_ordering.lower() == 'n':
+            
+            print(f"Thank you for your order.")
 
                 # Exit the keep ordering question loop
-
-                # Complete the order
-
-                # Since the customer decided to stop ordering, thank them for
-                # their order
-
-                # Exit the keep ordering question loop
-
+            place_order = False
+            break
 
                 # Tell the customer to try again
+        else:
+            print("Please choose either (Y)es or (N)")
 
 
 # Print out the customer's order
 print("This is what we are preparing for you.\n")
 
 # Uncomment the following line to check the structure of the order
-#print(order)
+# print(order)
 
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
-
+order_total = 0
 # 6. Loop through the items in the customer's order
-
+for i in order:
+    
     # 7. Store the dictionary items as variables
+    item_name = i.get('Item name')
+    price_of_item = i.get('Price')
+    quantity_of_item = i.get('Quantity')
 
-
+    order_total += price_of_item * quantity_of_item
+    
     # 8. Calculate the number of spaces for formatted printing
-
-
     # 9. Create space strings
-
+    name_spaces = " " * (24 - len(item_name))
+    price_spaces = " " * (5 - len(str(price_of_item)))
 
     # 10. Print the item name, price, and quantity
+    print(f"\n {item_name} {name_spaces} | {price_of_item} {price_spaces} | {quantity_of_item}")
 
 
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+
+print(f"The order total comes to {round(order_total,2)}. Thank you!")
