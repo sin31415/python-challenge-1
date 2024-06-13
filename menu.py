@@ -195,7 +195,7 @@ print("This is what we are preparing for you.\n")
 
 print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
-order_total = 0
+# order_total = 0
 # 6. Loop through the items in the customer's order
 for i in order:
     
@@ -204,7 +204,7 @@ for i in order:
     price_of_item = i.get('Price')
     quantity_of_item = i.get('Quantity')
 
-    order_total += price_of_item * quantity_of_item
+    # order_total += price_of_item * quantity_of_item
     
     # 8. Calculate the number of spaces for formatted printing
     # 9. Create space strings
@@ -219,4 +219,8 @@ for i in order:
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 
-print(f"\nThe order total comes to ${round(order_total,2)}. Thank you!")
+# print(f"\nThe order total comes to ${round(order_total,2)}. Thank you!")
+
+print(f"\nThe order total comes to ${round(sum([i.get('Price') * i.get('Quantity') for i in order]),2)}. Thank you!")
+
+# sum([i.get('Price') * i.get('Quantity') for i in order])
