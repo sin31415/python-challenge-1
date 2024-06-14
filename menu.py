@@ -188,7 +188,7 @@ while place_order:
 
 
 # Print out the customer's order
-print("This is what we are preparing for you.\n")
+print("\nThis is what we are preparing for you.\n")
 
 # Uncomment the following line to check the structure of the order
 # print(order)
